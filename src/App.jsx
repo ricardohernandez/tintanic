@@ -176,57 +176,69 @@ function App() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
 
         <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-6 items-center">
-            <div>
-              <div className="mb-3 inline-block bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-black tracking-widest border border-white/40">
-                CMYK • IMPRESIÓN PROFESIONAL
-              </div>
-              <h1 className="text-3xl md:text-4xl font-black text-white leading-tight mb-3 drop-shadow-lg">
-                Soluciones Gráficas de Alto Impacto
-              </h1>
+          <div className="text-center mb-6">
+            <div className="mb-3 inline-block bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-black tracking-widest border border-white/40">
+              CMYK • IMPRESIÓN PROFESIONAL
+            </div>
+            <h1 className="text-3xl md:text-4xl font-black text-white leading-tight mb-3 drop-shadow-lg">
+              Soluciones Gráficas
+            </h1>
 
-              <p className="text-white/90 text-xs md:text-sm mb-5 leading-relaxed max-w-md">
-                Impresión, estampados y cortes láser con tecnología de vanguardia. Colores vibrantes que destacan tu marca.
+            <p className="text-white/90 text-xs md:text-sm mb-5 leading-relaxed max-w-2xl mx-auto">
+              Impresión, estampados y cortes láser con tecnología de vanguardia. Colores vibrantes que destacan tu marca.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-2 justify-center mb-8">
+              <a href="#productos"
+                className="px-5 py-2.5 bg-white text-purple-600 font-black rounded-lg hover:scale-105 transition-all shadow-lg text-xs text-center">
+                Ver Catálogo
+              </a>
+
+              <a href="#contacto"
+                className="px-5 py-2.5 bg-white/20 backdrop-blur-md text-white font-black rounded-lg border border-white/40 hover:bg-white/30 transition-all text-xs text-center">
+                Cotizar
+              </a>
+            </div>
+          </div>
+
+          {/* SERVICIOS EN HERO */}
+          <div className="grid md:grid-cols-3 gap-3 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/30 hover:bg-white/20 transition-all hover:scale-105 group">
+              <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">🖨️</div>
+              <h3 className="text-sm font-black text-white mb-1">Impresión</h3>
+              <p className="text-white/80 text-[11px] mb-2">
+                Tarjetas, flyers, lonas y material promocional
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-2 mb-6">
-                <a href="#productos"
-                  className="px-5 py-2.5 bg-white text-purple-600 font-black rounded-lg hover:scale-105 transition-all shadow-lg text-xs text-center">
-                  Ver Catálogo
-                </a>
-
-                <a href="#contacto"
-                  className="px-5 py-2.5 bg-white/20 backdrop-blur-md text-white font-black rounded-lg border border-white/40 hover:bg-white/30 transition-all text-xs text-center">
-                  Cotizar
-                </a>
-              </div>
-
-              <div className="grid grid-cols-3 gap-2 text-center">
-                <div className="bg-white/20 backdrop-blur-md p-2.5 rounded-lg border border-white/40">
-                  <p className="text-xl font-black text-white">500+</p>
-                  <p className="text-[10px] text-white/80 font-semibold">Clientes</p>
-                </div>
-                <div className="bg-white/20 backdrop-blur-md p-2.5 rounded-lg border border-white/40">
-                  <p className="text-xl font-black text-white">10+</p>
-                  <p className="text-[10px] text-white/80 font-semibold">Años</p>
-                </div>
-                <div className="bg-white/20 backdrop-blur-md p-2.5 rounded-lg border border-white/40">
-                  <p className="text-xl font-black text-white">5★</p>
-                  <p className="text-[10px] text-white/80 font-semibold">Rating</p>
-                </div>
+              <div className="flex flex-wrap gap-1">
+                <span className="bg-cyan-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">Tarjetas</span>
+                <span className="bg-cyan-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">Flyers</span>
+                <span className="bg-cyan-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">Lonas</span>
               </div>
             </div>
 
-            <div className="hidden md:block">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-300 to-pink-400 rounded-2xl blur-3xl opacity-50"></div>
-                <div className="relative bg-white/10 backdrop-blur-md p-3 rounded-2xl border-2 border-white/40 shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600&h=600&fit=crop"
-                    alt="Productos"
-                    className="rounded-xl w-full shadow-lg"
-                  />
-                </div>
+            <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/30 hover:bg-white/20 transition-all hover:scale-105 group">
+              <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">👕</div>
+              <h3 className="text-sm font-black text-white mb-1">Estampados</h3>
+              <p className="text-white/80 text-[11px] mb-2">
+                DTF, sublimación y personalización de prendas
+              </p>
+              <div className="flex flex-wrap gap-1">
+                <span className="bg-purple-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">DTF</span>
+                <span className="bg-purple-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">Sublimación</span>
+                <span className="bg-purple-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">Chapitas</span>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/30 hover:bg-white/20 transition-all hover:scale-105 group">
+              <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">⚙️</div>
+              <h3 className="text-sm font-black text-white mb-1">Corte Láser</h3>
+              <p className="text-white/80 text-[11px] mb-2">
+                Corte y grabado en MDF, acrílico y más
+              </p>
+              <div className="flex flex-wrap gap-1">
+                <span className="bg-pink-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">Señalética</span>
+                <span className="bg-pink-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">Placas</span>
+                <span className="bg-pink-500/30 text-white text-[9px] px-2 py-0.5 rounded-full font-semibold">MDF</span>
               </div>
             </div>
           </div>
@@ -237,7 +249,7 @@ function App() {
       <section id="productos" className="py-8 bg-gradient-to-br from-gray-50 to-purple-50">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-black bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">Catálogo Premium</h2>
+            <h2 className="text-2xl md:text-3xl font-black bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">Catálogo </h2>
             <p className="text-gray-600 text-xs max-w-md mx-auto">Productos de calidad profesional</p>
             <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 mx-auto mt-2 rounded-full"></div>
           </div>
