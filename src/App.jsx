@@ -8,29 +8,29 @@ function App() {
   const products = [
     {
       id: 1,
-      name: 'Tarjetas Corporativas Premium',
+      name: 'Tarjetas Corporativas',
       category: 'Impresión',
       price: 25000,
       image: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=500&h=500&fit=crop',
-      description: 'Pack de 500 tarjetas de presentación impresas en papel 300gr',
+      description: 'Pack de 500 tarjetas premium en papel 300gr',
       rating: 4.8
     },
     {
       id: 2,
-      name: 'Estampado DTF en Tela',
+      name: 'Estampado DTF',
       category: 'Estampados',
       price: 15000,
       image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&h=500&fit=crop',
-      description: 'Estampado de alta calidad en prendas personalizadas',
+      description: 'Estampado de alta calidad en prendas',
       rating: 4.9
     },
     {
       id: 3,
-      name: 'Corte Láser Acrílico',
+      name: 'Corte Láser',
       category: 'Corte Láser',
       price: 35000,
       image: 'https://images.unsplash.com/photo-1609708536965-49cdc976ffe4?w=500&h=500&fit=crop',
-      description: 'Placas y señalética personalizadas con corte láser',
+      description: 'Placas y señalética personalizadas',
       rating: 4.7
     },
     {
@@ -39,25 +39,25 @@ function App() {
       category: 'Impresión',
       price: 18000,
       image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500&h=500&fit=crop',
-      description: '1000 volantes impresos a todo color en papel mate',
+      description: '1000 volantes a todo color',
       rating: 4.6
     },
     {
       id: 5,
-      name: 'Chapitas Promocionales',
+      name: 'Chapitas',
       category: 'Estampados',
       price: 12000,
       image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&h=500&fit=crop',
-      description: 'Pack 100 chapitas personalizadas con tu diseño',
+      description: 'Pack 100 chapitas personalizadas',
       rating: 4.8
     },
     {
       id: 6,
-      name: 'Lonas y Pendones',
+      name: 'Lonas',
       category: 'Impresión',
       price: 45000,
       image: 'https://images.unsplash.com/photo-1587985294348-c5378b50910b?w=500&h=500&fit=crop',
-      description: 'Lonas de alta resolución para exteriores',
+      description: 'Lonas de alta resolución',
       rating: 4.9
     },
   ]
@@ -95,30 +95,27 @@ function App() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="w-full bg-white shadow-lg fixed top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+      <nav className="w-full bg-white border-b-2 border-amber-900 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
+            <div className="w-9 h-9 bg-amber-700 rounded-lg flex items-center justify-center text-white font-bold text-sm border-2 border-amber-900">
+              T
             </div>
-            <h1 className="text-2xl font-extrabold text-gray-900">Tintanic</h1>
+            <h1 className="text-xl md:text-2xl font-bold text-amber-900 tracking-tight">Tintanic</h1>
           </div>
 
-          <div className="hidden md:flex items-center gap-8 font-medium text-gray-700">
-            <a href="#productos" className="hover:text-blue-600 transition">Productos</a>
-            <a href="#servicios" className="hover:text-blue-600 transition">Servicios</a>
-            <a href="#contacto" className="hover:text-blue-600 transition">Contacto</a>
+          <div className="hidden md:flex items-center gap-6 font-medium text-amber-800 text-sm">
+            <a href="#productos" className="hover:text-amber-600 transition border-b-2 border-transparent hover:border-amber-600 pb-1">Productos</a>
+            <a href="#servicios" className="hover:text-amber-600 transition border-b-2 border-transparent hover:border-amber-600 pb-1">Servicios</a>
+            <a href="#contacto" className="hover:text-amber-600 transition border-b-2 border-transparent hover:border-amber-600 pb-1">Contacto</a>
           </div>
 
           <button 
             onClick={() => setShowCart(!showCart)}
-            className="relative px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold flex items-center gap-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            <span className="hidden sm:inline">Carrito</span>
+            className="relative px-3 py-2 bg-amber-700 text-white rounded-lg hover:bg-amber-800 transition font-semibold flex items-center gap-2 text-sm border-2 border-amber-900">
+            🛍️
             {cartCount > 0 && (
-              <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                 {cartCount}
               </span>
             )}
@@ -128,46 +125,44 @@ function App() {
 
       {/* CARRITO MODAL */}
       {showCart && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-end">
-          <div className="bg-white w-full md:w-96 h-screen overflow-y-auto shadow-2xl p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Tu Carrito</h2>
-              <button onClick={() => setShowCart(false)} className="text-gray-500 hover:text-gray-700">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+        <div className="fixed inset-0 bg-black bg-opacity-40 z-40 flex justify-end">
+          <div className="bg-white w-full md:w-80 h-screen overflow-y-auto shadow-2xl p-5 border-l-4 border-amber-900">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold text-amber-900">Carrito</h2>
+              <button onClick={() => setShowCart(false)} className="text-gray-500 hover:text-gray-700 text-xl">×</button>
             </div>
 
             {cart.length === 0 ? (
-              <p className="text-center text-gray-500 py-8">Tu carrito está vacío</p>
+              <p className="text-center text-gray-500 py-8">Carrito vacío</p>
             ) : (
               <>
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 mb-4 max-h-96 overflow-y-auto">
                   {cart.map(item => (
-                    <div key={item.id} className="border rounded-lg p-4 flex gap-4">
-                      <img src={item.image} alt={item.name} className="w-16 h-16 rounded object-cover" />
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900">{item.name}</h3>
-                        <p className="text-blue-600 font-bold">${item.price.toLocaleString()}</p>
-                        <div className="flex items-center gap-2 mt-2">
-                          <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300">-</button>
-                          <span className="px-3">{item.quantity}</span>
-                          <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
-                          <button onClick={() => removeFromCart(item.id)} className="ml-auto text-red-500 hover:text-red-700">×</button>
+                    <div key={item.id} className="border border-amber-200 rounded-lg p-3 bg-amber-50">
+                      <div className="flex gap-3">
+                        <img src={item.image} alt={item.name} className="w-14 h-14 rounded object-cover border border-amber-300" />
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-amber-900 text-sm">{item.name}</h3>
+                          <p className="text-amber-700 font-bold text-sm">${item.price.toLocaleString()}</p>
+                          <div className="flex items-center gap-1 mt-1">
+                            <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="px-1.5 py-0.5 bg-amber-700 text-white rounded text-xs hover:bg-amber-800">−</button>
+                            <span className="px-2 text-xs">{item.quantity}</span>
+                            <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="px-1.5 py-0.5 bg-amber-700 text-white rounded text-xs hover:bg-amber-800">+</button>
+                            <button onClick={() => removeFromCart(item.id)} className="ml-auto text-red-600 hover:text-red-800 font-bold">×</button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t pt-4 space-y-3">
-                  <div className="flex justify-between text-lg font-bold">
+                <div className="border-t-2 border-amber-300 pt-3 space-y-2">
+                  <div className="flex justify-between text-sm font-bold text-amber-900">
                     <span>Total:</span>
-                    <span className="text-blue-600">${cartTotal.toLocaleString()}</span>
+                    <span className="text-amber-700">${cartTotal.toLocaleString()}</span>
                   </div>
-                  <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">
-                    Proceder al Pago
+                  <button className="w-full bg-amber-700 text-white py-2 rounded-lg font-bold hover:bg-amber-800 transition text-sm border-2 border-amber-900">
+                    Pagar
                   </button>
                 </div>
               </>
@@ -177,55 +172,59 @@ function App() {
       )}
 
       {/* HERO SECTION */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="pt-12 pb-12 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-b-4 border-amber-900">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-                Soluciones Gráficas de Calidad
+              <div className="mb-4 inline-block bg-amber-700 text-white px-3 py-1 rounded-full text-xs font-bold tracking-widest border border-amber-900">
+                ARTESANAL + MODERNO
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black text-amber-900 leading-tight mb-4 tracking-tight">
+                Soluciones Gráficas Únicas
               </h1>
 
-              <p className="text-lg text-blue-100 mb-8 leading-relaxed">
-                Impresión profesional, estampados personalizados, cortes láser y mucho más. 
-                Todo lo que necesitas para potenciar tu marca en un solo lugar.
+              <p className="text-amber-800 text-sm md:text-base mb-6 leading-relaxed max-w-sm">
+                Impresión, estampados y cortes láser con toque artesanal. Diseños únicos que hacen la diferencia.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 mb-8">
                 <a href="#productos" 
-                   className="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition shadow-lg">
-                  Explorar Productos
+                   className="px-6 py-3 bg-amber-700 text-white font-bold rounded-lg hover:bg-amber-800 transition border-2 border-amber-900 text-sm text-center">
+                  Ver Productos
                 </a>
 
                 <a href="#contacto" 
-                   className="px-8 py-4 bg-blue-800 text-white font-bold rounded-lg hover:bg-blue-900 transition border-2 border-white">
-                  Contactar Ahora
+                   className="px-6 py-3 bg-white text-amber-700 font-bold rounded-lg border-2 border-amber-700 hover:bg-amber-50 transition text-sm text-center">
+                  Consultar
                 </a>
               </div>
 
-              <div className="mt-10 grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="text-3xl font-bold">500+</p>
-                  <p className="text-blue-100">Clientes</p>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div className="bg-white p-3 rounded-lg border-2 border-amber-300">
+                  <p className="text-2xl font-black text-amber-900">500+</p>
+                  <p className="text-xs text-amber-700">Clientes</p>
                 </div>
-                <div>
-                  <p className="text-3xl font-bold">10+</p>
-                  <p className="text-blue-100">Años</p>
+                <div className="bg-white p-3 rounded-lg border-2 border-amber-300">
+                  <p className="text-2xl font-black text-amber-900">10+</p>
+                  <p className="text-xs text-amber-700">Años</p>
                 </div>
-                <div>
-                  <p className="text-3xl font-bold">5★</p>
-                  <p className="text-blue-100">Calificación</p>
+                <div className="bg-white p-3 rounded-lg border-2 border-amber-300">
+                  <p className="text-2xl font-black text-amber-900">5★</p>
+                  <p className="text-xs text-amber-700">Puntuación</p>
                 </div>
               </div>
             </div>
 
             <div className="hidden md:block">
               <div className="relative">
-                <div className="absolute inset-0 bg-blue-400 rounded-3xl blur-3xl opacity-20"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600&h=600&fit=crop" 
-                  alt="Productos" 
-                  className="relative rounded-3xl shadow-2xl"
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-400 rounded-2xl blur-2xl opacity-30 -z-10"></div>
+                <div className="bg-white p-4 rounded-2xl border-4 border-amber-900 shadow-xl">
+                  <img 
+                    src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600&h=600&fit=crop" 
+                    alt="Productos" 
+                    className="rounded-lg w-full"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -233,48 +232,47 @@ function App() {
       </section>
 
       {/* PRODUCTOS SECTION */}
-      <section id="productos" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Nuestros Productos</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Productos de alta calidad con precios competitivos. Compra directamente desde nuestra tienda online.
-            </p>
+      <section id="productos" className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-amber-900 mb-3 tracking-tight">Catálogo</h2>
+            <p className="text-amber-700 text-sm max-w-md mx-auto">Productos de calidad con diseño artesanal</p>
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-700 to-orange-600 mx-auto mt-3 rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map(product => (
-              <div key={product.id} className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition group">
-                <div className="relative overflow-hidden rounded-t-2xl h-64">
+              <div key={product.id} className="bg-white border-3 border-amber-900 rounded-xl overflow-hidden hover:shadow-lg transition group">
+                <div className="relative overflow-hidden h-40">
                   <img 
                     src={product.image} 
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
-                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute top-3 right-3 bg-amber-700 text-white px-2 py-1 rounded-full text-xs font-bold border border-amber-900">
                     {product.category}
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                <div className="p-4">
+                  <h3 className="text-base font-black text-amber-900 mb-2 line-clamp-1">{product.name}</h3>
                   
-                  <div className="flex items-center gap-1 mb-3">
-                    <span className="text-yellow-400">★</span>
-                    <span className="text-gray-700 font-semibold">{product.rating}</span>
+                  <div className="flex items-center gap-1 mb-2">
+                    <span className="text-yellow-600 font-bold">★</span>
+                    <span className="text-amber-700 font-bold text-sm">{product.rating}</span>
                   </div>
 
-                  <p className="text-gray-600 text-sm mb-4">{product.description}</p>
+                  <p className="text-amber-800 text-xs mb-3 line-clamp-2">{product.description}</p>
 
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center gap-2">
                     <div>
-                      <p className="text-gray-500 text-sm">Precio</p>
-                      <p className="text-3xl font-bold text-blue-600">${product.price.toLocaleString()}</p>
+                      <p className="text-amber-600 text-xs font-semibold">Precio</p>
+                      <p className="text-xl font-black text-amber-900">${product.price.toLocaleString()}</p>
                     </div>
                     <button 
                       onClick={() => addToCart(product)}
-                      className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition">
-                      Agregar
+                      className="px-4 py-2 bg-amber-700 text-white font-bold rounded-lg hover:bg-amber-800 transition text-xs border-2 border-amber-900">
+                      +
                     </button>
                   </div>
                 </div>
@@ -285,23 +283,22 @@ function App() {
       </section>
 
       {/* SERVICIOS SECTION */}
-      <section id="servicios" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-16">
-            Servicios Personalizados
-          </h2>
+      <section id="servicios" className="py-12 bg-amber-50">
+        <div className="max-w-6xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-amber-900 mb-3 tracking-tight">Nuestros Servicios</h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-700 to-orange-600 mx-auto rounded-full"></div>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl border-2 border-blue-200 hover:shadow-xl transition">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center mb-4 text-xl">
-                🖨️
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Impresión Digital</h3>
-              <p className="text-gray-700 mb-4">
-                Impresión de alta resolución para documentos, tarjetas y material promocional.
+            <div className="bg-white p-6 rounded-xl border-3 border-amber-900 hover:shadow-lg transition">
+              <div className="text-3xl mb-3">🖨️</div>
+              <h3 className="text-lg font-black text-amber-900 mb-2">Impresión</h3>
+              <p className="text-amber-800 text-sm mb-4">
+                Impresión de alta resolución en documentos, tarjetas y material promocional.
               </p>
-              <ul className="text-gray-600 space-y-2 text-sm">
+              <ul className="text-amber-700 space-y-1 text-xs font-semibold">
                 <li>✓ Tarjetas corporativas</li>
                 <li>✓ Flyers y catálogos</li>
                 <li>✓ Lonas y pendones</li>
@@ -309,15 +306,13 @@ function App() {
             </div>
 
             
-            <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-8 rounded-2xl border-2 border-pink-200 hover:shadow-xl transition">
-              <div className="w-12 h-12 bg-pink-600 text-white rounded-lg flex items-center justify-center mb-4 text-xl">
-                👕
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Estampados</h3>
-              <p className="text-gray-700 mb-4">
-                Personalización de prendas y productos con DTF, sublimación y más técnicas.
+            <div className="bg-white p-6 rounded-xl border-3 border-amber-900 hover:shadow-lg transition">
+              <div className="text-3xl mb-3">👕</div>
+              <h3 className="text-lg font-black text-amber-900 mb-2">Estampados</h3>
+              <p className="text-amber-800 text-sm mb-4">
+                Personalización de prendas con DTF, sublimación y técnicas modernas.
               </p>
-              <ul className="text-gray-600 space-y-2 text-sm">
+              <ul className="text-amber-700 space-y-1 text-xs font-semibold">
                 <li>✓ DTF y sublimación</li>
                 <li>✓ Chapitas promocionales</li>
                 <li>✓ Prendas personalizadas</li>
@@ -325,18 +320,16 @@ function App() {
             </div>
 
           
-            <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl border-2 border-green-200 hover:shadow-xl transition">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-lg flex items-center justify-center mb-4 text-xl">
-                ⚙️
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Corte Láser</h3>
-              <p className="text-gray-700 mb-4">
+            <div className="bg-white p-6 rounded-xl border-3 border-amber-900 hover:shadow-lg transition">
+              <div className="text-3xl mb-3">⚙️</div>
+              <h3 className="text-lg font-black text-amber-900 mb-2">Corte Láser</h3>
+              <p className="text-amber-800 text-sm mb-4">
                 Corte y grabado láser en MDF, acrílico y otros materiales.
               </p>
-              <ul className="text-gray-600 space-y-2 text-sm">
-                <li>✓ Señalética personalizadas</li>
+              <ul className="text-amber-700 space-y-1 text-xs font-semibold">
+                <li>✓ Señalética personalizada</li>
                 <li>✓ Placas corporativas</li>
-                <li>✓ Merchandising</li>
+                <li>✓ Merchandising único</li>
               </ul>
             </div>
 
@@ -345,42 +338,42 @@ function App() {
       </section>
 
       {/* CONTACTO SECTION */}
-      <section id="contacto" className="py-20 bg-gray-900 text-white">
+      <section id="contacto" className="py-12 bg-amber-900 text-white">
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4">¿Necesitas una Cotización?</h2>
-          <p className="text-gray-300 text-lg mb-10">
-            Contáctanos por WhatsApp o correo para proyectos personalizados y cotizaciones especiales.
+          <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">¿Necesitas una Cotización?</h2>
+          <p className="text-amber-100 text-sm mb-8">
+            Contacta con nosotros para proyectos personalizados
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-10">
-            <div className="bg-gray-800 p-6 rounded-2xl">
-              <p className="text-3xl font-bold text-blue-400 mb-2">tinttanic@gmail.com</p>
-              <p className="text-gray-400">Correo electrónico</p>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-amber-800 p-5 rounded-xl border-2 border-amber-700">
+              <p className="text-2xl font-black text-amber-100 mb-1">tinttanic@gmail.com</p>
+              <p className="text-amber-200 text-sm">Email</p>
             </div>
-            <div className="bg-gray-800 p-6 rounded-2xl">
-              <p className="text-3xl font-bold text-green-400 mb-2">+56 9 9401 4008</p>
-              <p className="text-gray-400">WhatsApp</p>
+            <div className="bg-amber-800 p-5 rounded-xl border-2 border-amber-700">
+              <p className="text-2xl font-black text-amber-100 mb-1">+56 9 9401 4008</p>
+              <p className="text-amber-200 text-sm">WhatsApp</p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="https://wa.me/56994014008"
-               className="px-8 py-4 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600 transition text-lg">
-              💬 Enviar Mensaje por WhatsApp
+               className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition border-2 border-green-700 text-sm">
+              💬 WhatsApp
             </a>
             <a href="mailto:tinttanic@gmail.com"
-               className="px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition text-lg">
-              ✉️ Enviar Correo
+               className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition border-2 border-blue-700 text-sm">
+              ✉️ Email
             </a>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-8 text-center text-gray-600 bg-gray-100 border-t-4 border-blue-600">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="font-semibold mb-2">Tintanic Soluciones Gráficas</p>
-          <p className="text-sm">© 2025 Todos los derechos reservados • Impresión • Estampados • Corte Láser</p>
+      <footer className="py-6 text-center text-amber-900 bg-amber-100 border-t-4 border-amber-900">
+        <div className="max-w-6xl mx-auto px-4">
+          <p className="font-black mb-1 text-sm">Tintanic Soluciones Gráficas</p>
+          <p className="text-xs">© 2025 — Impresión • Estampados • Corte Láser</p>
         </div>
       </footer>
     </>

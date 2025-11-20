@@ -1,11 +1,17 @@
-/* Estilos personalizados para Tintanic */
+/* Estilos artesanales para Tintanic */
 
-/* Scroll suave */
 html {
   scroll-behavior: smooth;
 }
 
-/* Animaciones */
+/* Tipografía personalizada */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+/* Animaciones suaves */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -17,41 +23,40 @@ html {
   }
 }
 
-@keyframes slideInLeft {
+@keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
-/* Aplicar animación a los elementos */
 section {
   animation: fadeIn 0.6s ease-out;
 }
 
-/* Estilo personalizado del scrollbar */
+/* Scrollbar personalizado */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #fef3c7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2563eb;
+  background: #b45309;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+  background: #92400e;
 }
 
-/* Hover effects mejorados */
+/* Efectos hover */
 button {
   transition: all 0.3s ease;
 }
@@ -64,25 +69,56 @@ a {
   transition: all 0.3s ease;
 }
 
-/* Gradiente personalizado */
-.gradient-text {
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+/* Línea decorativa */
+.line-accent {
+  height: 3px;
+  background: linear-gradient(90deg, #b45309, #ea580c);
+  border-radius: 2px;
+}
+
+/* Bordes artesanales */
+.border-craft {
+  border: 3px solid #78350f;
+  border-radius: 0.5rem;
+}
+
+/* Sombra artesanal */
+.shadow-craft {
+  box-shadow: 3px 3px 0px rgba(120, 53, 15, 0.2);
+}
+
+/* Texto en gradiente */
+.text-gradient {
+  background: linear-gradient(135deg, #b45309 0%, #ea580c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Sombra personalizada */
-.shadow-glow {
-  box-shadow: 0 0 30px rgba(37, 99, 235, 0.3);
-}
-
-/* Efecto hover para tarjetas */
-.card-hover {
+/* Hover effect para tarjetas */
+.card-artisan {
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+.card-artisan:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 0px rgba(120, 53, 15, 0.3);
+}
+
+/* Botones compactos */
+button.btn-compact {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Responsive text */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
 }
