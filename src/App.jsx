@@ -95,27 +95,27 @@ function App() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="w-full bg-white border-b-2 border-amber-900 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+      <nav className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 backdrop-blur-lg sticky top-0 z-50 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-2.5 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-amber-700 rounded-lg flex items-center justify-center text-white font-bold text-sm border-2 border-amber-900">
+            <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-pink-500 rounded-lg flex items-center justify-center text-white font-black text-sm shadow-md">
               T
             </div>
-            <h1 className="text-xl md:text-2xl font-bold text-amber-900 tracking-tight">Tintanic</h1>
+            <h1 className="text-lg md:text-xl font-black text-white tracking-tight">Tintanic</h1>
           </div>
 
-          <div className="hidden md:flex items-center gap-6 font-medium text-amber-800 text-sm">
-            <a href="#productos" className="hover:text-amber-600 transition border-b-2 border-transparent hover:border-amber-600 pb-1">Productos</a>
-            <a href="#servicios" className="hover:text-amber-600 transition border-b-2 border-transparent hover:border-amber-600 pb-1">Servicios</a>
-            <a href="#contacto" className="hover:text-amber-600 transition border-b-2 border-transparent hover:border-amber-600 pb-1">Contacto</a>
+          <div className="hidden md:flex items-center gap-4 font-semibold text-white text-xs">
+            <a href="#productos" className="hover:text-yellow-300 transition-all hover:scale-105">Productos</a>
+            <a href="#servicios" className="hover:text-yellow-300 transition-all hover:scale-105">Servicios</a>
+            <a href="#contacto" className="hover:text-yellow-300 transition-all hover:scale-105">Contacto</a>
           </div>
 
-          <button 
+          <button
             onClick={() => setShowCart(!showCart)}
-            className="relative px-3 py-2 bg-amber-700 text-white rounded-lg hover:bg-amber-800 transition font-semibold flex items-center gap-2 text-sm border-2 border-amber-900">
+            className="relative px-3 py-1.5 bg-white/20 backdrop-blur-md text-white rounded-lg hover:bg-white/30 transition-all font-semibold flex items-center gap-2 text-sm border border-white/40 hover:scale-105">
             🛍️
             {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+              <span className="absolute -top-1.5 -right-1.5 bg-gradient-to-r from-pink-500 to-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold shadow-lg animate-pulse">
                 {cartCount}
               </span>
             )}
@@ -125,30 +125,30 @@ function App() {
 
       {/* CARRITO MODAL */}
       {showCart && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 z-40 flex justify-end">
-          <div className="bg-white w-full md:w-80 h-screen overflow-y-auto shadow-2xl p-5 border-l-4 border-amber-900">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex justify-end animate-fadeIn">
+          <div className="bg-white w-full md:w-80 h-screen overflow-y-auto shadow-2xl p-4 animate-slideInRight">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold text-amber-900">Carrito</h2>
-              <button onClick={() => setShowCart(false)} className="text-gray-500 hover:text-gray-700 text-xl">×</button>
+              <h2 className="text-lg font-black bg-gradient-to-r from-cyan-600 to-pink-600 bg-clip-text text-transparent">Carrito</h2>
+              <button onClick={() => setShowCart(false)} className="text-gray-400 hover:text-gray-700 text-2xl font-bold transition">×</button>
             </div>
 
             {cart.length === 0 ? (
-              <p className="text-center text-gray-500 py-8">Carrito vacío</p>
+              <p className="text-center text-gray-400 py-8 text-sm">Carrito vacío</p>
             ) : (
               <>
-                <div className="space-y-3 mb-4 max-h-96 overflow-y-auto">
+                <div className="space-y-2 mb-4 max-h-96 overflow-y-auto">
                   {cart.map(item => (
-                    <div key={item.id} className="border border-amber-200 rounded-lg p-3 bg-amber-50">
-                      <div className="flex gap-3">
-                        <img src={item.image} alt={item.name} className="w-14 h-14 rounded object-cover border border-amber-300" />
+                    <div key={item.id} className="border border-purple-200 rounded-lg p-2.5 bg-gradient-to-br from-purple-50 to-pink-50 hover:shadow-md transition">
+                      <div className="flex gap-2">
+                        <img src={item.image} alt={item.name} className="w-12 h-12 rounded-lg object-cover border-2 border-white shadow" />
                         <div className="flex-1">
-                          <h3 className="font-semibold text-amber-900 text-sm">{item.name}</h3>
-                          <p className="text-amber-700 font-bold text-sm">${item.price.toLocaleString()}</p>
+                          <h3 className="font-bold text-gray-800 text-xs">{item.name}</h3>
+                          <p className="text-pink-600 font-black text-xs">${item.price.toLocaleString()}</p>
                           <div className="flex items-center gap-1 mt-1">
-                            <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="px-1.5 py-0.5 bg-amber-700 text-white rounded text-xs hover:bg-amber-800">−</button>
-                            <span className="px-2 text-xs">{item.quantity}</span>
-                            <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="px-1.5 py-0.5 bg-amber-700 text-white rounded text-xs hover:bg-amber-800">+</button>
-                            <button onClick={() => removeFromCart(item.id)} className="ml-auto text-red-600 hover:text-red-800 font-bold">×</button>
+                            <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="px-1.5 py-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded text-xs hover:scale-105 transition font-bold">−</button>
+                            <span className="px-2 text-xs font-bold">{item.quantity}</span>
+                            <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="px-1.5 py-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded text-xs hover:scale-105 transition font-bold">+</button>
+                            <button onClick={() => removeFromCart(item.id)} className="ml-auto text-red-500 hover:text-red-700 font-bold text-lg">×</button>
                           </div>
                         </div>
                       </div>
@@ -156,13 +156,13 @@ function App() {
                   ))}
                 </div>
 
-                <div className="border-t-2 border-amber-300 pt-3 space-y-2">
-                  <div className="flex justify-between text-sm font-bold text-amber-900">
-                    <span>Total:</span>
-                    <span className="text-amber-700">${cartTotal.toLocaleString()}</span>
+                <div className="border-t-2 border-purple-200 pt-3 space-y-2">
+                  <div className="flex justify-between text-sm font-black">
+                    <span className="text-gray-700">Total:</span>
+                    <span className="bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">${cartTotal.toLocaleString()}</span>
                   </div>
-                  <button className="w-full bg-amber-700 text-white py-2 rounded-lg font-bold hover:bg-amber-800 transition text-sm border-2 border-amber-900">
-                    Pagar
+                  <button className="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 text-white py-2 rounded-lg font-black hover:scale-105 transition-all text-sm shadow-lg">
+                    Pagar Ahora
                   </button>
                 </div>
               </>
@@ -172,57 +172,59 @@ function App() {
       )}
 
       {/* HERO SECTION */}
-      <section className="pt-12 pb-12 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 border-b-4 border-amber-900">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+      <section className="pt-8 pb-8 bg-gradient-to-br from-cyan-400 via-purple-400 to-pink-400 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30"></div>
+
+        <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
             <div>
-              <div className="mb-4 inline-block bg-amber-700 text-white px-3 py-1 rounded-full text-xs font-bold tracking-widest border border-amber-900">
-                ARTESANAL + MODERNO
+              <div className="mb-3 inline-block bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-black tracking-widest border border-white/40">
+                CMYK • IMPRESIÓN PROFESIONAL
               </div>
-              <h1 className="text-4xl md:text-5xl font-black text-amber-900 leading-tight mb-4 tracking-tight">
-                Soluciones Gráficas Únicas
+              <h1 className="text-3xl md:text-4xl font-black text-white leading-tight mb-3 drop-shadow-lg">
+                Soluciones Gráficas de Alto Impacto
               </h1>
 
-              <p className="text-amber-800 text-sm md:text-base mb-6 leading-relaxed max-w-sm">
-                Impresión, estampados y cortes láser con toque artesanal. Diseños únicos que hacen la diferencia.
+              <p className="text-white/90 text-xs md:text-sm mb-5 leading-relaxed max-w-md">
+                Impresión, estampados y cortes láser con tecnología de vanguardia. Colores vibrantes que destacan tu marca.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
-                <a href="#productos" 
-                   className="px-6 py-3 bg-amber-700 text-white font-bold rounded-lg hover:bg-amber-800 transition border-2 border-amber-900 text-sm text-center">
-                  Ver Productos
+              <div className="flex flex-col sm:flex-row gap-2 mb-6">
+                <a href="#productos"
+                  className="px-5 py-2.5 bg-white text-purple-600 font-black rounded-lg hover:scale-105 transition-all shadow-lg text-xs text-center">
+                  Ver Catálogo
                 </a>
 
-                <a href="#contacto" 
-                   className="px-6 py-3 bg-white text-amber-700 font-bold rounded-lg border-2 border-amber-700 hover:bg-amber-50 transition text-sm text-center">
-                  Consultar
+                <a href="#contacto"
+                  className="px-5 py-2.5 bg-white/20 backdrop-blur-md text-white font-black rounded-lg border border-white/40 hover:bg-white/30 transition-all text-xs text-center">
+                  Cotizar
                 </a>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 text-center">
-                <div className="bg-white p-3 rounded-lg border-2 border-amber-300">
-                  <p className="text-2xl font-black text-amber-900">500+</p>
-                  <p className="text-xs text-amber-700">Clientes</p>
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <div className="bg-white/20 backdrop-blur-md p-2.5 rounded-lg border border-white/40">
+                  <p className="text-xl font-black text-white">500+</p>
+                  <p className="text-[10px] text-white/80 font-semibold">Clientes</p>
                 </div>
-                <div className="bg-white p-3 rounded-lg border-2 border-amber-300">
-                  <p className="text-2xl font-black text-amber-900">10+</p>
-                  <p className="text-xs text-amber-700">Años</p>
+                <div className="bg-white/20 backdrop-blur-md p-2.5 rounded-lg border border-white/40">
+                  <p className="text-xl font-black text-white">10+</p>
+                  <p className="text-[10px] text-white/80 font-semibold">Años</p>
                 </div>
-                <div className="bg-white p-3 rounded-lg border-2 border-amber-300">
-                  <p className="text-2xl font-black text-amber-900">5★</p>
-                  <p className="text-xs text-amber-700">Puntuación</p>
+                <div className="bg-white/20 backdrop-blur-md p-2.5 rounded-lg border border-white/40">
+                  <p className="text-xl font-black text-white">5★</p>
+                  <p className="text-[10px] text-white/80 font-semibold">Rating</p>
                 </div>
               </div>
             </div>
 
             <div className="hidden md:block">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-400 rounded-2xl blur-2xl opacity-30 -z-10"></div>
-                <div className="bg-white p-4 rounded-2xl border-4 border-amber-900 shadow-xl">
-                  <img 
-                    src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600&h=600&fit=crop" 
-                    alt="Productos" 
-                    className="rounded-lg w-full"
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-300 to-pink-400 rounded-2xl blur-3xl opacity-50"></div>
+                <div className="relative bg-white/10 backdrop-blur-md p-3 rounded-2xl border-2 border-white/40 shadow-2xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=600&h=600&fit=crop"
+                    alt="Productos"
+                    className="rounded-xl w-full shadow-lg"
                   />
                 </div>
               </div>
@@ -232,46 +234,47 @@ function App() {
       </section>
 
       {/* PRODUCTOS SECTION */}
-      <section id="productos" className="py-12 bg-white">
+      <section id="productos" className="py-8 bg-gradient-to-br from-gray-50 to-purple-50">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-amber-900 mb-3 tracking-tight">Catálogo</h2>
-            <p className="text-amber-700 text-sm max-w-md mx-auto">Productos de calidad con diseño artesanal</p>
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-700 to-orange-600 mx-auto mt-3 rounded-full"></div>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-black bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">Catálogo Premium</h2>
+            <p className="text-gray-600 text-xs max-w-md mx-auto">Productos de calidad profesional</p>
+            <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 mx-auto mt-2 rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {products.map(product => (
-              <div key={product.id} className="bg-white border-3 border-amber-900 rounded-xl overflow-hidden hover:shadow-lg transition group">
-                <div className="relative overflow-hidden h-40">
-                  <img 
-                    src={product.image} 
+              <div key={product.id} className="bg-white rounded-xl overflow-hidden hover:shadow-2xl transition-all group border border-purple-100 hover:scale-105 duration-300">
+                <div className="relative overflow-hidden h-32">
+                  <img
+                    src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
                   />
-                  <div className="absolute top-3 right-3 bg-amber-700 text-white px-2 py-1 rounded-full text-xs font-bold border border-amber-900">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute top-2 right-2 bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-2 py-0.5 rounded-full text-[10px] font-black shadow-lg">
                     {product.category}
                   </div>
                 </div>
 
-                <div className="p-4">
-                  <h3 className="text-base font-black text-amber-900 mb-2 line-clamp-1">{product.name}</h3>
-                  
+                <div className="p-3">
+                  <h3 className="text-sm font-black text-gray-800 mb-1 line-clamp-1">{product.name}</h3>
+
                   <div className="flex items-center gap-1 mb-2">
-                    <span className="text-yellow-600 font-bold">★</span>
-                    <span className="text-amber-700 font-bold text-sm">{product.rating}</span>
+                    <span className="text-yellow-500 font-bold text-sm">★</span>
+                    <span className="text-gray-700 font-bold text-xs">{product.rating}</span>
                   </div>
 
-                  <p className="text-amber-800 text-xs mb-3 line-clamp-2">{product.description}</p>
+                  <p className="text-gray-600 text-[11px] mb-2 line-clamp-2">{product.description}</p>
 
                   <div className="flex justify-between items-center gap-2">
                     <div>
-                      <p className="text-amber-600 text-xs font-semibold">Precio</p>
-                      <p className="text-xl font-black text-amber-900">${product.price.toLocaleString()}</p>
+                      <p className="text-gray-500 text-[10px] font-semibold">Desde</p>
+                      <p className="text-lg font-black bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">${product.price.toLocaleString()}</p>
                     </div>
-                    <button 
+                    <button
                       onClick={() => addToCart(product)}
-                      className="px-4 py-2 bg-amber-700 text-white font-bold rounded-lg hover:bg-amber-800 transition text-xs border-2 border-amber-900">
+                      className="px-4 py-2 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-black rounded-lg hover:scale-110 transition-all text-xs shadow-lg">
                       +
                     </button>
                   </div>
@@ -283,50 +286,50 @@ function App() {
       </section>
 
       {/* SERVICIOS SECTION */}
-      <section id="servicios" className="py-12 bg-amber-50">
+      <section id="servicios" className="py-8 bg-white">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-amber-900 mb-3 tracking-tight">Nuestros Servicios</h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-700 to-orange-600 mx-auto rounded-full"></div>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-black bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">Nuestros Servicios</h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            
-            <div className="bg-white p-6 rounded-xl border-3 border-amber-900 hover:shadow-lg transition">
-              <div className="text-3xl mb-3">🖨️</div>
-              <h3 className="text-lg font-black text-amber-900 mb-2">Impresión</h3>
-              <p className="text-amber-800 text-sm mb-4">
+          <div className="grid md:grid-cols-3 gap-4">
+
+            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-5 rounded-xl border-2 border-cyan-200 hover:shadow-xl transition-all hover:scale-105">
+              <div className="text-3xl mb-2">🖨️</div>
+              <h3 className="text-base font-black text-cyan-700 mb-2">Impresión</h3>
+              <p className="text-cyan-600 text-xs mb-3">
                 Impresión de alta resolución en documentos, tarjetas y material promocional.
               </p>
-              <ul className="text-amber-700 space-y-1 text-xs font-semibold">
+              <ul className="text-cyan-700 space-y-1 text-[11px] font-semibold">
                 <li>✓ Tarjetas corporativas</li>
                 <li>✓ Flyers y catálogos</li>
                 <li>✓ Lonas y pendones</li>
               </ul>
             </div>
 
-            
-            <div className="bg-white p-6 rounded-xl border-3 border-amber-900 hover:shadow-lg transition">
-              <div className="text-3xl mb-3">👕</div>
-              <h3 className="text-lg font-black text-amber-900 mb-2">Estampados</h3>
-              <p className="text-amber-800 text-sm mb-4">
+
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-xl border-2 border-purple-200 hover:shadow-xl transition-all hover:scale-105">
+              <div className="text-3xl mb-2">👕</div>
+              <h3 className="text-base font-black text-purple-700 mb-2">Estampados</h3>
+              <p className="text-purple-600 text-xs mb-3">
                 Personalización de prendas con DTF, sublimación y técnicas modernas.
               </p>
-              <ul className="text-amber-700 space-y-1 text-xs font-semibold">
+              <ul className="text-purple-700 space-y-1 text-[11px] font-semibold">
                 <li>✓ DTF y sublimación</li>
                 <li>✓ Chapitas promocionales</li>
                 <li>✓ Prendas personalizadas</li>
               </ul>
             </div>
 
-          
-            <div className="bg-white p-6 rounded-xl border-3 border-amber-900 hover:shadow-lg transition">
-              <div className="text-3xl mb-3">⚙️</div>
-              <h3 className="text-lg font-black text-amber-900 mb-2">Corte Láser</h3>
-              <p className="text-amber-800 text-sm mb-4">
+
+            <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-5 rounded-xl border-2 border-pink-200 hover:shadow-xl transition-all hover:scale-105">
+              <div className="text-3xl mb-2">⚙️</div>
+              <h3 className="text-base font-black text-pink-700 mb-2">Corte Láser</h3>
+              <p className="text-pink-600 text-xs mb-3">
                 Corte y grabado láser en MDF, acrílico y otros materiales.
               </p>
-              <ul className="text-amber-700 space-y-1 text-xs font-semibold">
+              <ul className="text-pink-700 space-y-1 text-[11px] font-semibold">
                 <li>✓ Señalética personalizada</li>
                 <li>✓ Placas corporativas</li>
                 <li>✓ Merchandising único</li>
@@ -338,31 +341,33 @@ function App() {
       </section>
 
       {/* CONTACTO SECTION */}
-      <section id="contacto" className="py-12 bg-amber-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black mb-3 tracking-tight">¿Necesitas una Cotización?</h2>
-          <p className="text-amber-100 text-sm mb-8">
+      <section id="contacto" className="py-8 bg-gradient-to-br from-purple-600 via-pink-600 to-cyan-600 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
+
+        <div className="max-w-4xl mx-auto px-4 md:px-6 text-center relative z-10">
+          <h2 className="text-2xl md:text-3xl font-black mb-2">¿Necesitas una Cotización?</h2>
+          <p className="text-white/90 text-xs mb-6">
             Contacta con nosotros para proyectos personalizados
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-amber-800 p-5 rounded-xl border-2 border-amber-700">
-              <p className="text-2xl font-black text-amber-100 mb-1">tinttanic@gmail.com</p>
-              <p className="text-amber-200 text-sm">Email</p>
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/30 hover:bg-white/20 transition">
+              <p className="text-lg font-black text-white mb-0.5">tinttanic@gmail.com</p>
+              <p className="text-white/80 text-xs">Email</p>
             </div>
-            <div className="bg-amber-800 p-5 rounded-xl border-2 border-amber-700">
-              <p className="text-2xl font-black text-amber-100 mb-1">+56 9 9401 4008</p>
-              <p className="text-amber-200 text-sm">WhatsApp</p>
+            <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/30 hover:bg-white/20 transition">
+              <p className="text-lg font-black text-white mb-0.5">+56 9 9401 4008</p>
+              <p className="text-white/80 text-xs">WhatsApp</p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="https://wa.me/56994014008"
-               className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition border-2 border-green-700 text-sm">
+              className="px-5 py-2.5 bg-green-500 text-white font-black rounded-lg hover:bg-green-600 transition-all text-xs shadow-lg hover:scale-105">
               💬 WhatsApp
             </a>
             <a href="mailto:tinttanic@gmail.com"
-               className="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition border-2 border-blue-700 text-sm">
+              className="px-5 py-2.5 bg-blue-500 text-white font-black rounded-lg hover:bg-blue-600 transition-all text-xs shadow-lg hover:scale-105">
               ✉️ Email
             </a>
           </div>
@@ -370,10 +375,10 @@ function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-6 text-center text-amber-900 bg-amber-100 border-t-4 border-amber-900">
+      <footer className="py-4 text-center bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto px-4">
-          <p className="font-black mb-1 text-sm">Tintanic Soluciones Gráficas</p>
-          <p className="text-xs">© 2025 — Impresión • Estampados • Corte Láser</p>
+          <p className="font-black mb-0.5 text-xs bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Tintanic Soluciones Gráficas</p>
+          <p className="text-[10px] text-gray-400">© 2025 — Impresión • Estampados • Corte Láser</p>
         </div>
       </footer>
     </>
